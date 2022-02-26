@@ -1,0 +1,4 @@
+scripts:
+  start:
+    cmd: "deno run --allow-env --allow-net ./src/main.ts"
+    desc: "run discord bot"
