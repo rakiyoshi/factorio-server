@@ -1,7 +1,7 @@
 # Usage
 ```terraform
 module "factorio" {
-  source = "https://github.com/rakiyoshi/factorio-server/factorio-server/terraform"
+  source = "git::https://github.com/rakiyoshi/factorio-server//terraform"
 
   vpc_id        = data.aws_vpc.default.id
   subnet_id     = data.aws_subnets.subnets.ids[1]
