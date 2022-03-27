@@ -37,6 +37,13 @@ resource "aws_instance" "factorio" {
   tags = {
     Name = "factorio"
   }
+
+  lifecycle {
+    ignore_changes = [
+      ami,
+      user_data_base64,
+    ]
+  }
 }
 
 data "local_file" "user_data" {
