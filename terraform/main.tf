@@ -24,8 +24,8 @@
 # EC2 Instance
 ###############
 resource "aws_instance" "factorio" {
-  ami       = data.aws_ssm_parameter.amzn2.value
-  user_data = data.local_file.user_data.content_base64
+  ami              = data.aws_ssm_parameter.amzn2.value
+  user_data_base64 = data.local_file.user_data.content_base64
   root_block_device {
     volume_size = 10
   }
