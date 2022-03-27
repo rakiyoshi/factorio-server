@@ -29,10 +29,10 @@ resource "aws_instance" "factorio" {
   root_block_device {
     volume_size = 10
   }
-  subnet_id            = var.subnet_id
-  instance_type        = var.instance_type
-  iam_instance_profile = aws_iam_instance_profile.factorio.id
-  security_groups      = [aws_security_group.factorio.id]
+  subnet_id              = var.subnet_id
+  instance_type          = var.instance_type
+  iam_instance_profile   = aws_iam_instance_profile.factorio.id
+  vpc_security_group_ids = [aws_security_group.factorio.id]
 
   tags = {
     Name = "factorio"
