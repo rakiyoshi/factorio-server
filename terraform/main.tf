@@ -24,15 +24,15 @@
 # EC2 Instance
 ###############
 resource "aws_instance" "factorio" {
-  ami       = data.aws_ssm_parameter.amzn2.value
-  user_data = data.local_file.user_data.content_base64
+  ami              = data.aws_ssm_parameter.amzn2.value
+  user_data_base64 = data.local_file.user_data.content_base64
   root_block_device {
     volume_size = 10
   }
-  subnet_id            = var.subnet_id
-  instance_type        = var.instance_type
-  iam_instance_profile = aws_iam_instance_profile.factorio.id
-  security_groups      = [aws_security_group.factorio.id]
+  subnet_id              = var.subnet_id
+  instance_type          = var.instance_type
+  iam_instance_profile   = aws_iam_instance_profile.factorio.id
+  vpc_security_group_ids = [aws_security_group.factorio.id]
 
   tags = {
     Name = "factorio"
